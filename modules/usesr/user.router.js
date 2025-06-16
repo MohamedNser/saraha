@@ -1,11 +1,9 @@
 import { Router } from "express";
-import { userModel } from "../../DB/model/Schema.js";
+import * as UserController from "./user.controller/user.js"
+import { auth } from "../../middleware/auth.js";
 const router = Router()
 
-router.get("/",async (req , res)=>{
-const users = await userModel.find()
-res.json({message:'user module' , users})
-})
+router.get("/profile",auth() ,UserController.profile)
 
 
 
