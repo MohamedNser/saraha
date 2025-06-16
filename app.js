@@ -3,6 +3,7 @@ dotenv.config()
 import express from "express"
 import * as indexRouter from "./modules/index.router.js"
 import connctedDB from "./DB/connction.js"
+import { sendEmails } from "./service/sendEmail.js"
 const app = express()
 const port = 3000
 const BaseURL =process.env.BaseURL

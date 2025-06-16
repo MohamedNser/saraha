@@ -12,6 +12,10 @@ const userSchema = new Schema ({
     lName:{
         type:String,
     },
+    password:{
+        type:String,
+        required:true
+    },
     age:{
         type:Number
     },
@@ -32,7 +36,7 @@ const userSchema = new Schema ({
         type:Boolean,
         default:false
     },
-    onkine:{
+    online:{
         type:Boolean,
         default:false
     },
