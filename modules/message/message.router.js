@@ -1,9 +1,12 @@
 import { Router } from "express";
+import * as messageRouter from "./message.conrtoller/message.js"
+
 const router = Router()
 
-router.get("/", (req , res)=>{
-res.json({message:'message module'})
-})
+
+router.get("/",messageRouter.messageList )
+router.post('/:receiverId',messageRouter.sendMessage )
+router.patch('/:id',messageRouter.deleteAndupdate )
 
 
 

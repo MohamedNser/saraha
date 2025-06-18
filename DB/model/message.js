@@ -6,7 +6,7 @@ text:{
         type:String,
         required:true
     },
-    reciverdID:{
+    receiverId:{
         type:Types.ObjectId , ref:"User" , required:true
     },
     IsDeleted:{
