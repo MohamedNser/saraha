@@ -8,7 +8,9 @@ res.json({message:'auth module'})
 
 router.post('/singup' , register.singup)
 router.get('/confirmEmail/:token' , register.confirmemail)
+router.get('/refToken/:token' , register.refreshToken)
 router.post('/singin' , register.singin)
-
+router.patch("/sendCode" , register.sendCode)
+router.patch("/forgetPassword" , register.forgetPassword)
 
 export default router

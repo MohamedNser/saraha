@@ -44,7 +44,8 @@ const userSchema = new Schema ({
         type:Boolean,
         default:false
     },
-    profilePic:String
+    profilePic:String,
+    code: {type:Number , default:null}
 
 },{
     timestamps:true
