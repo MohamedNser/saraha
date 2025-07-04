@@ -6,7 +6,7 @@ export const deleteAndupdate = async (req,res)=>{
     const {id} = req.params;
     const userID = req.user._id
     const message = await messageModel.updateOne({_id:id , receiverId:userID},{IsDeleted:true})
-    message.modifiedCount? res.json({message:'Done'} ) :res.json({message:'in-valid update'} )
+    message.modifiedCount? res.json({message:'Done'} ) :res.status(400).json({ message: "Invalid update data" });
 }
 
 //...........
@@ -27,7 +27,7 @@ export const messageList = async (req , res)=>{
         )
         res.json({message:'Done' ,messageL })
     } catch (error) {
-        res.json({message:'catch error' , error})
+        res.status(500).json({ message: "Something went wrong", error });
     }
 
 }
@@ -41,14 +41,14 @@ export const sendMessage = async (req , res)=>{
     console.log("Received receiverId:", receiverId);
     console.log("User found:", user);
     if (!user) {
-    res.json({message:"reciverID is wrong"})
+    res.status(404).json({ message: "Receiver not found" });
     } else {
         const newMessage = new messageModel({text:message , receiverId})
         const savedMessage = await newMessage.save()
         res.json({message:"DONE" , savedMessage })
     }
 } catch (error) {
-        res.json({message:"catch error" , error })
+    res.status(500).json({ message: "Something went wrong", error });
 }
 
 }
