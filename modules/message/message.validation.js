@@ -6,7 +6,7 @@ export const message = {
         receiverId:joi.string().min(24).max(24).required(),
         
     }),
-    body:joi.object().required.keys({
+    body:joi.object().required().keys({
         message:joi.string().required()
     })
 }

@@ -6,9 +6,9 @@ import connctedDB from "./DB/connction.js"
 const app = express()
 const port = 3000
 const BaseURL =process.env.BaseURL
+
 app.use(express.json())
-
-
+app.use(`${BaseURL}/upload`, express.static('./upload'))
 app.use(`${BaseURL}/auth` , indexRouter.authRouter)
 app.use(`${BaseURL}/message` , indexRouter.messageRouter)
 app.use(`${BaseURL}/user` , indexRouter.userRouter)

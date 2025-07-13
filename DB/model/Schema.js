@@ -1,3 +1,4 @@
+
 import {Schema , model} from "mongoose";
 
 
@@ -45,6 +46,7 @@ const userSchema = new Schema ({
         default:false
     },
     profilePic:String,
+    CoverPic:Array,
     code: {type:Number , default:null}
 
 },{
